@@ -37,16 +37,17 @@ body {
 a { color: var(--gold); text-decoration: none; }
 a:hover { color: var(--gold-light); }
 
-/* NAV - CORRIGIDO PARA LINHA ÚNICA */
-nav {
+/* BARRA DE NAVEGAÇÃO FIXA - LOGO E VOLTAR APENAS */
+.navbar-top {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0.85rem 2rem;
+  padding: 1.25rem 2rem;
   background: rgba(13,13,13,0.92); backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(255,255,255,0.07);
 }
 .nav-brand {
   display: flex; align-items: center; gap: 12px;
+  white-space: nowrap;
 }
 .nav-logo-icon {
   width: 24px; height: 24px; fill: none; stroke: var(--gold); stroke-width: 1.5;
@@ -57,18 +58,17 @@ nav {
 .nav-back {
   display: inline-flex; align-items: center; gap: 6px;
   font-size: 13px; font-weight: 600; color: var(--gray-2);
-  transition: color .2s;
+  transition: color .2s; white-space: nowrap;
 }
 .nav-back:hover { color: var(--white); }
-.nav-back svg { flex-shrink: 0; }
 
-/* LAYOUT */
+/* LAYOUT PRINCIPAL */
 .page-wrap {
   max-width: 760px; margin: 0 auto;
-  padding: 7rem 2rem 5rem;
+  padding: 8rem 2rem 5rem;
 }
 
-/* HEADER */
+/* HEADER DO DOCUMENTO */
 .doc-header {
   padding-bottom: 2rem;
   border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -90,40 +90,39 @@ nav {
   font-size: 13px; color: var(--gray-2);
   display: flex; align-items: center; gap: 6px;
 }
-.doc-meta-item svg { flex-shrink: 0; }
 
-/* TOC */
-.toc {
+/* ÍNDICE INTERNO (DENTRO DA PÁGINA) */
+.toc-box {
   background: var(--black-2);
   border: 1px solid rgba(255,255,255,0.07);
   border-left: 3px solid var(--gold);
   border-radius: 0 10px 10px 0;
-  padding: 1.25rem 1.5rem;
-  margin-bottom: 3rem;
+  padding: 1.5rem;
+  margin-bottom: 3.5rem;
 }
 .toc-title {
   font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
-  text-transform: uppercase; color: var(--gray-2); margin-bottom: 0.875rem;
+  text-transform: uppercase; color: var(--gray-2); margin-bottom: 1rem;
 }
-.toc-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+.toc-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
 .toc-list li a {
-  font-size: 13.5px; color: var(--gray-2);
-  transition: color .2s; display: flex; align-items: center; gap: 6px;
+  font-size: 14px; color: var(--gray-2);
+  transition: color .2s; display: inline-flex; align-items: center; gap: 8px;
 }
 .toc-list li a:hover { color: var(--gold); }
 .toc-list li a::before {
   content: ''; width: 4px; height: 4px; border-radius: 50%;
-  background: var(--gold-border); flex-shrink: 0; transition: background .2s;
+  background: var(--gold-border); flex-shrink: 0;
 }
 .toc-list li a:hover::before { background: var(--gold); }
 
-/* CONTENT */
-.doc-section { margin-bottom: 3rem; }
+/* CONTEÚDO DAS SEÇÕES */
+.doc-section { margin-bottom: 3.5rem; }
 .doc-section:last-child { margin-bottom: 0; }
 
 .doc-h2 {
-  font-size: 1.2rem; font-weight: 700; color: var(--white);
-  margin-bottom: 1rem; padding-bottom: 0.5rem;
+  font-size: 1.25rem; font-weight: 700; color: var(--white);
+  margin-bottom: 1.25rem; padding-bottom: 0.5rem;
   border-bottom: 1px solid rgba(255,255,255,0.06);
   display: flex; align-items: center; gap: 10px;
 }
@@ -135,14 +134,14 @@ nav {
 }
 .doc-p {
   font-size: 14.5px; color: var(--gray-2); line-height: 1.85;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 .doc-p:last-child { margin-bottom: 0; }
 .doc-p strong { color: var(--white); font-weight: 600; }
 
 .doc-list {
-  list-style: none; margin: 0.75rem 0 1rem; padding: 0;
-  display: flex; flex-direction: column; gap: 6px;
+  list-style: none; margin: 0.75rem 0 1.25rem; padding: 0;
+  display: flex; flex-direction: column; gap: 8px;
 }
 .doc-list li {
   font-size: 14px; color: var(--gray-2); line-height: 1.7;
@@ -153,59 +152,48 @@ nav {
   background: var(--gold); flex-shrink: 0; margin-top: 9px;
 }
 
-/* HIGHLIGHT BOX */
+/* CAIXAS DE DESTAQUE E CONTATO */
 .highlight-box {
   background: var(--black-2);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: 10px; padding: 1.25rem 1.5rem;
-  margin: 1rem 0;
+  margin: 1.25rem 0;
 }
-.highlight-box p {
-  font-size: 13.5px; color: var(--gray-2); line-height: 1.75; margin: 0;
-}
-.highlight-box p + p { margin-top: 0.6rem; }
+.highlight-box p { font-size: 13.5px; color: var(--gray-2); line-height: 1.75; margin: 0; }
 .highlight-box strong { color: var(--white); font-weight: 600; }
 
-/* CONTACT BOX */
 .contact-box {
-  background: var(--gold-dim);
-  border: 1px solid var(--gold-border);
-  border-radius: 10px; padding: 1.25rem 1.5rem;
-  margin-top: 1rem;
+  background: var(--gold-dim); border: 1px solid var(--gold-border);
+  border-radius: 10px; padding: 1.5rem; margin-top: 1.25rem;
 }
-.contact-box p {
-  font-size: 13.5px; color: var(--gray-2); line-height: 1.75; margin: 0;
-}
-.contact-box p + p { margin-top: 0.5rem; }
-.contact-box a { color: var(--gold); }
+.contact-box p { font-size: 13.5px; color: var(--gray-2); line-height: 1.75; margin: 0; }
+.contact-box p + p { margin-top: 0.6rem; }
 .contact-box strong { color: var(--white); font-weight: 600; }
 
 /* FOOTER */
 footer {
-  background: var(--black-2);
-  border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 2rem;
-  text-align: center;
+  background: var(--black-2); border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 2.5rem 2rem; text-align: center;
 }
 footer p { font-size: 12px; color: var(--gray-3); line-height: 1.7; }
-footer a { font-size: 12px; color: var(--gray-3); }
-footer a:hover { color: var(--gold); }
-.footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 0.5rem; flex-wrap: wrap; }
+.footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 0.75rem; flex-wrap: wrap; }
+.footer-links a { font-size: 12px; color: var(--gray-3); }
+.footer-links a:hover { color: var(--gold); }
 
-/* RESPONSIVE */
+/* RESPONSIVIDADE */
 @media (max-width: 640px) {
-  nav { padding: 0.85rem 1.25rem; }
+  .navbar-top { padding: 1rem 1.25rem; }
   .nav-title { font-size: 12px; }
-  .page-wrap { padding: 6rem 1.25rem 3.5rem; }
-  .doc-title { font-size: 1.75rem; }
-  .toc { padding: 1rem 1.1rem; }
+  .page-wrap { padding: 6.5rem 1.25rem 3.5rem; }
+  .doc-title { font-size: 1.85rem; }
+  .toc-box { padding: 1.25rem; }
 }
 </style>
 </head>
 <body>
 
-<!-- MENU SUPERIOR CORRIGIDO EM LINHA ÚNICA COM LOGO -->
-<nav>
+<!-- MENU SUPERIOR FIXO: LOGO + VOLTAR (GARANTIDO EM 1 LINHA) -->
+<nav class="navbar-top">
   <a href="/" class="nav-brand">
     <svg class="nav-logo-icon" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M12 2L3 7l9 5 9-5-9-5zM3 17l9 5 9-5M3 12l9 5 9-5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -235,10 +223,10 @@ footer a:hover { color: var(--gold); }
     </div>
   </header>
 
-  <!-- TOC -->
-  <nav class="toc" aria-label="Índice do documento">
+  <!-- ÍNDICE DE SEÇÕES INTERNAS -->
+  <div class="toc-box">
     <p class="toc-title">Neste documento</p>
-    <ol class="toc-list">
+    <ul class="toc-list">
       <li><a href="#s1">Quem somos</a></li>
       <li><a href="#s2">Quais dados coletamos</a></li>
       <li><a href="#s3">Como usamos seus dados</a></li>
@@ -250,10 +238,10 @@ footer a:hover { color: var(--gold); }
       <li><a href="#s9">Segurança dos dados</a></li>
       <li><a href="#s10">Alterações nesta política</a></li>
       <li><a href="#s11">Contato e encarregado (DPO)</a></li>
-    </ol>
-  </nav>
+    </ul>
+  </div>
 
-  <!-- SEÇÕES -->
+  <!-- SEÇÕES DE CONTEÚDO -->
   <section class="doc-section" id="s1">
     <h2 class="doc-h2"><span class="doc-h2-num">1</span>Quem somos</h2>
     <p class="doc-p">Esta Política de Privacidade se aplica ao site e às atividades de atendimento da <strong>Achiles Melo Advocacia</strong>, escritório de advocacia individual titularizado por <strong>José Achiles Donizetti de Melo Filho</strong>, inscrito na OAB/SP sob o nº 494.216, com sede em Mogi das Cruzes, Estado de São Paulo.</p>
@@ -298,7 +286,6 @@ footer a:hover { color: var(--gold); }
       <li><strong>Consentimento (art. 7º, I):</strong> para comunicações informativas ou de marketing, mediante autorização expressa do titular</li>
       <li><strong>Legítimo interesse (art. 7º, IX):</strong> para fins de segurança, prevenção de fraudes e melhoria dos serviços, desde que não prevaleçam sobre os direitos do titular</li>
     </ul>
-    <p class="doc-p">Dados sensíveis, when tratados, seguirão as hipóteses específicas do artigo 11 da LGPD.</p>
   </section>
 
   <section class="doc-section" id="s5">
@@ -321,9 +308,8 @@ footer a:hover { color: var(--gold); }
       <li><strong>Dados de clientes ativos:</strong> durante toda a vigência do contrato de prestação de serviços</li>
       <li><strong>Dados de clientes encerrados:</strong> pelo prazo prescricional aplicável à relação jurídica, ou pelo mínimo de 5 (cinco) anos após o encerramento</li>
       <li><strong>Dados de contato (consultas não contratadas):</strong> até 90 dias após o último contato, salvo consentimento para comunicações futuras</li>
-      <li><strong>Dados de navegação:</strong> pelo período estabelecido pela plataforma de análise utilizada, geralmente até 26 meses</li>
+      <li><strong>Dados de navegação:</strong> pelo período estabelecido pela plataforma de análise utilizada.</li>
     </ul>
-    <p class="doc-p">Após o prazo aplicável, os dados são eliminados ou anonimizados de forma segura.</p>
   </section>
 
   <section class="doc-section" id="s7">
@@ -336,41 +322,22 @@ footer a:hover { color: var(--gold); }
       <li><strong>Portabilidade:</strong> receber seus dados em formato estruturado, quando tecnicamente viável</li>
       <li><strong>Eliminação:</strong> dos dados tratados com base no consentimento, ressalvadas as obrigações legais</li>
       <li><strong>Revogação do consentimento:</strong> a qualquer momento, para os tratamentos baseados nessa base legal</li>
-      <li><strong>Oposição:</strong> ao tratamento realizado com fundamento em outras bases legais, em caso de descumprimento da LGPD</li>
-      <li><strong>Informação:</strong> sobre entidades públicas e privadas com as quais compartilhamos dados</li>
     </ul>
-    <p class="doc-p">Para exercer qualquer desses direitos, entre em contato pelos canais indicados na seção 11 desta política.</p>
   </section>
 
   <section class="doc-section" id="s8">
     <h2 class="doc-h2"><span class="doc-h2-num">8</span>Cookies e rastreamento</h2>
-    <p class="doc-p">Nosso site pode utilizar cookies e tecnologias similares para melhorar a experiência de navegação. Os tipos utilizados são:</p>
-    <ul class="doc-list">
-      <li><strong>Cookies essenciais:</strong> necessários para o funcionamento básico do site. Não podem ser desativados.</li>
-      <li><strong>Cookies de desempenho:</strong> coletam informações sobre como os visitantes utilizam o site (páginas visitadas, tempo de permanência). Utilizamos esses dados de forma agregada e anônima.</li>
-      <li><strong>Cookies de publicidade:</strong> quando utilizados serviços como Google Ads, pode haver rastreamento para fins de mensuração de campanhas. Você pode optar por não ser rastreado nas configurações do seu navegador.</li>
-    </ul>
-    <p class="doc-p">Você pode gerenciar ou desativar cookies nas configurações do seu navegador. A desativação de cookies essenciais pode afetar a funcionalidade do site.</p>
+    <p class="doc-p">Nosso site pode utilizar cookies essenciais (para o funcionamento básico da página), cookies de desempenho (análise anônima de tráfego) e ferramentas de mensuração de campanhas (como Google Ads). Você pode configurar ou desativar os cookies DIretamente no seu navegador de internet.</p>
   </section>
 
   <section class="doc-section" id="s9">
     <h2 class="doc-h2"><span class="doc-h2-num">9</span>Segurança dos dados</h2>
-    <p class="doc-p">Adotamos medidas técnicas e organizacionais adequadas para proteger seus dados contra acesso não autorizado, perda, destruição ou divulgação indevida, incluindo:</p>
-    <ul class="doc-list">
-      <li>Transmissão de dados via protocolo HTTPS com certificado SSL</li>
-      <li>Acesso restrito aos dados apenas às pessoas diretamente envolvidas no atendimento</li>
-      <li>Uso de ferramentas de comunicação com criptografia de ponta a ponta</li>
-      <li>Armazenamento em serviços com padrões reconhecidos de segurança</li>
-    </ul>
-    <div class="highlight-box">
-      <p>Em caso de incidente de segurança que possa acarretar risco ou dano relevante aos titulares, notificaremos a Autoridade Nacional de Proteção de Dados (ANPD) e os titulares afetados nos prazos estabelecidos pela LGPD.</p>
-    </div>
+    <p class="doc-p">Adotamos medidas técnicas e organizacionais adequadas para proteger seus dados contra acesso não autorizado, perda, destruição ou divulgação indevida, incluindo o uso de protocolo seguro HTTPS com certificado SSL ativo e armazenamento em nuvem confiável.</p>
   </section>
 
   <section class="doc-section" id="s10">
     <h2 class="doc-h2"><span class="doc-h2-num">10</span>Alterações nesta política</h2>
-    <p class="doc-p">Esta Política de Privacidade pode ser atualizada periodicamente para refletir mudanças nas práticas de tratamento de dados, na legislação aplicável ou nos serviços prestados. A data da última atualização é indicada no cabeçalho deste documento.</p>
-    <p class="doc-p">Recomendamos a revisão periódica desta página. Em caso de alterações relevantes que afetem diretamente clientes ativos, enviaremos comunicação prévia pelos canais de contato disponíveis.</p>
+    <p class="doc-p">Esta Política de Privacidade pode ser atualizada periodicamente para refletir mudanças regulatórias ou melhorias operacionais. A data da última atualização estará sempre destacada no topo deste documento.</p>
   </section>
 
   <section class="doc-section" id="s11">
@@ -381,9 +348,7 @@ footer a:hover { color: var(--gold); }
       <p>Responsável pelo tratamento de dados: José Achiles Donizetti de Melo Filho — OAB/SP 494.216</p>
       <p>WhatsApp: <a href="https://wa.me/5511913473579" target="_blank" rel="noopener">(11) 91347-3579</a></p>
       <p>Localização: Mogi das Cruzes, São Paulo — SP</p>
-      <p style="margin-top:.75rem;font-size:13px;color:var(--gray-3)">Prazo de resposta: até 15 dias úteis a contar do recebimento da solicitação, conforme art. 18, §3º da LGPD.</p>
     </div>
-    <p class="doc-p" style="margin-top:1rem">Para questões relacionadas à proteção de dados pessoais no Brasil, você também pode contatar a <strong>Autoridade Nacional de Proteção de Dados (ANPD)</strong> pelo site <a href="https://www.gov.br/anpd" target="_blank" rel="noopener">gov.br/anpd</a>.</p>
   </section>
 
 </main>
