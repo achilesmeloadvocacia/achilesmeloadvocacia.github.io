@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Recuperação de WhatsApp e Contas Bloqueadas | Achiles Melo Advocacia</title>
-<meta name="description" content="Seu WhatsApp Business ou Instagram foi banido sem justificativa? Recupere sua ferramenta de trabalho por vias jurídicas e liminares.">
+<title>Recuperação de WhatsApp Business Banido | Achiles Melo Advocacia</title>
+<meta name="description" content="Seu WhatsApp Business foi banido de forma injusta ou arbitrária? Recupere sua ferramenta de vendas e clientes por vias jurídicas.">
 <link rel="canonical" href="https://achilesmelo.adv.br/recuperar-conta/">
 
 <!-- Preconexões de Performance -->
@@ -35,7 +35,7 @@ body {
   line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden;
 }
 
-/* BARRA DE NAVEGAÇÃO SUPERIOR - COM SUA LOGO OFICIAL */
+/* BARRA DE NAVEGAÇÃO SUPERIOR */
 .navbar-top {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
@@ -43,30 +43,48 @@ body {
   background: rgba(13,13,13,0.92); backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(255,255,255,0.07);
 }
-.nav-brand {
-  display: flex; align-items: center;
+.nav-brand { display: flex; align-items: center; text-decoration: none; white-space: nowrap; }
+.nav-logo-img { height: 32px; width: auto; display: block; }
+
+/* BOTÃO WHATSAPP HEADER */
+.nav-cta-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(37, 211, 102, 0.1);
+  border: 1px solid rgba(37, 211, 102, 0.3);
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 8px 16px;
+  border-radius: 4px;
   text-decoration: none;
-  white-space: nowrap;
+  transition: all 0.2s ease;
 }
-.nav-logo-img {
-  height: 32px; /* Altura perfeita para manter a proporção na barra superior */
-  width: auto;
-  display: block;
+.nav-cta-whatsapp:hover {
+  background: var(--green);
+  color: #FFF;
+  border-color: var(--green);
+  box-shadow: 0 4px 12px rgba(37,211,102,0.2);
 }
-.nav-back {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 13px; font-weight: 600; color: var(--gray-2);
-  transition: color .2s; white-space: nowrap; text-decoration: none;
-}
-.nav-back:hover { color: var(--white); }
 
 /* HERO SECTION */
-.hero {
-  max-width: 860px;
+.hero-container {
+  max-width: 1140px;
   margin: 0 auto;
-  padding: 9rem 1.5rem 3.5rem;
-  text-align: center;
+  padding: 10rem 1.5rem 4rem;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
 }
+
+.hero-text {
+  text-align: left;
+}
+
 .badge {
   display: inline-flex;
   align-items: center;
@@ -85,7 +103,7 @@ body {
 .badge span { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
 
 h1 {
-  font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+  font-size: clamp(2rem, 4vw, 2.8rem);
   font-weight: 900;
   line-height: 1.2;
   letter-spacing: -0.03em;
@@ -94,20 +112,33 @@ h1 {
 h1 em { font-style: normal; color: var(--gold); }
 
 .subtitle {
-  font-size: clamp(1rem, 2.2vw, 1.15rem);
+  font-size: clamp(1rem, 2vw, 1.1rem);
   color: var(--gray-2);
-  max-width: 700px;
-  margin: 0 auto 2.5rem;
+  margin-bottom: 2rem;
   line-height: 1.6;
+}
+
+/* COLUNA DA IMAGEM */
+.hero-image-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.ban-screenshot {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid var(--gold-border);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
 }
 
 /* CONTAINER DE SINTOMAS / PROVA DA DOR */
 .pain-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 16px;
-  margin-bottom: 3rem;
-  text-align: left;
 }
 .pain-card {
   background: rgba(255,255,255,0.02);
@@ -123,75 +154,165 @@ h1 em { font-style: normal; color: var(--gold); }
   align-items: center;
   gap: 8px;
 }
-.pain-card h4::before {
-  content: '✕'; color: #ff4d4d; font-weight: bold; font-size: 12px;
-}
-.pain-card p {
-  font-size: 13px;
-  color: var(--gray-2);
-  line-height: 1.5;
-}
+.pain-card h4::before { content: '✕'; color: #ff4d4d; font-weight: bold; font-size: 12px; }
+.pain-card p { font-size: 13px; color: var(--gray-2); line-height: 1.5; }
 
-/* BOX DO BOTÃO DE WHATSAPP (ESTILO PREMIUM CARD) */
-.cta-box {
+/* SEÇÃO DO FORMULÁRIO */
+.form-section {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1.5rem 2rem;
+}
+.form-box {
   background: var(--black-2);
   border: 1px solid var(--gold-border);
   border-radius: 16px;
-  padding: 2.5rem 2rem;
+  padding: 3rem 2.5rem;
   box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-  margin-bottom: 4.5rem;
 }
-.cta-title {
-  font-size: 19px;
-  font-weight: 700;
-  margin-bottom: 6px;
-  color: var(--white);
+.form-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
 }
-.cta-subtitle {
-  font-size: 14px;
-  color: var(--gray-2);
-  margin-bottom: 1.75rem;
+.form-title { font-size: 22px; font-weight: 800; margin-bottom: 8px; color: var(--white); letter-spacing: -0.01em; }
+.form-subtitle { font-size: 14px; color: var(--gray-2); }
+.form-subtitle strong { color: var(--gold-light); font-weight: 600; }
+
+.main-contact-form {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-.cta-subtitle strong {
-  color: var(--gold-light);
+.form-group-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.form-control {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form-control label {
+  font-size: 12px;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gold-light);
+}
+.form-control input, 
+.form-control textarea {
+  background: var(--black-3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 12px 16px;
+  color: var(--white);
+  font-family: var(--font);
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+.form-control input:focus, 
+.form-control textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.15);
+}
+.form-control textarea {
+  resize: vertical;
+  min-height: 100px;
 }
 
-.btn-whatsapp {
+.btn-submit-form {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--gold) 0%, #a88734 100%);
+  color: var(--black);
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 1.1rem 2rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(201,168,76,0.2);
+  transition: all 0.25s ease;
+  margin-top: 10px;
+}
+.btn-submit-form:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(201,168,76,0.35);
+  filter: brightness(1.1);
+}
+
+/* SEÇÃO ALTERNATIVA (WHATSAPP FORA DO FORMULÁRIO) */
+.alternative-contact-box {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4.5rem;
+  text-align: center;
+}
+.alternative-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--gray-3);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  max-width: 400px;
+  margin: 0 auto 1.5rem;
+}
+.alternative-divider::before,
+.alternative-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.alternative-divider:not(:empty)::before { margin-right: 1rem; }
+.alternative-divider:not(:empty)::after { margin-left: 1rem; }
+
+.btn-whatsapp-external {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
   width: 100%;
-  max-width: 480px;
+  max-width: 520px;
   background: linear-gradient(135deg, #25D366 0%, #1ebd57 100%);
   color: #FFF;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 1.2rem 2rem;
-  border-radius: 8px;
+  letter-spacing: 0.05em;
+  padding: 1.1rem 2rem;
+  border-radius: 6px;
   text-decoration: none;
-  box-shadow: 0 6px 24px rgba(37,211,102,0.25);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(37,211,102,0.15);
+  transition: all 0.25s ease;
   border: none;
+  cursor: pointer;
 }
-.btn-whatsapp:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(37,211,102,0.4);
+.btn-whatsapp-external:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(37,211,102,0.3);
   filter: brightness(1.1);
 }
-.btn-subtext {
-  font-size: 12px;
+
+.form-disclaimer {
+  font-size: 11px;
   color: var(--gray-3);
-  margin-top: 14px;
+  text-align: center;
+  line-height: 1.6;
+  margin-top: 5px;
 }
-.btn-subtext strong {
-  color: var(--gray-2);
-  font-weight: 500;
-}
+.form-disclaimer strong { color: var(--gray-2); font-weight: 500; }
 
 /* SEÇÃO ALVOS / SEGMENTOS */
 .segments {
@@ -199,26 +320,10 @@ h1 em { font-style: normal; color: var(--gold); }
   padding: 5rem 1.5rem;
   border-top: 1px solid rgba(255,255,255,0.03);
 }
-.segments-inner {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-.section-title {
-  text-align: center;
-  font-size: clamp(1.5rem, 3.5vw, 2rem);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  margin-bottom: 3.5rem;
-}
-.section-title em {
-  font-style: normal;
-  color: var(--gold);
-}
-.grid-segments {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-}
+.segments-inner { max-width: 1000px; margin: 0 auto; }
+.section-title { text-align: center; font-size: clamp(1.5rem, 3.5vw, 2rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 3.5rem; }
+.section-title em { font-style: normal; color: var(--gold); }
+.grid-segments { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
 .card-segment {
   background: var(--black-3);
   border: 1px solid rgba(255,255,255,0.03);
@@ -226,132 +331,156 @@ h1 em { font-style: normal; color: var(--gold); }
   border-radius: 12px;
   transition: all 0.25s ease;
 }
-.card-segment:hover {
-  border-color: var(--gold-border);
-  transform: translateY(-2px);
-}
-.card-icon {
-  font-size: 26px;
-  margin-bottom: 1.25rem;
-  display: block;
-}
-.card-segment h3 {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: var(--white);
-}
-.card-segment p {
-  font-size: 14px;
-  color: var(--gray-2);
-  line-height: 1.6;
-}
+.card-segment:hover { border-color: var(--gold-border); transform: translateY(-2px); }
+.card-icon { font-size: 26px; margin-bottom: 1.25rem; display: block; }
+.card-segment h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; color: var(--white); }
+.card-segment p { font-size: 14px; color: var(--gray-2); line-height: 1.6; }
 
 /* COMPLIANCE / RODAPÉ */
-footer {
-  padding: 3.5rem 1.5rem;
-  text-align: center;
-  border-top: 1px solid rgba(255,255,255,0.05);
-  background: var(--black);
-}
-footer p {
-  font-size: 12px;
-  color: var(--gray-3);
-  line-height: 1.7;
-}
-.footer-links {
-  margin-top: 1.25rem;
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-}
-.footer-links a {
-  font-size: 12px;
-  color: var(--gray-3);
-  text-decoration: none;
-  transition: color 0.2s;
-}
+footer { padding: 3.5rem 1.5rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); background: var(--black); }
+footer p { font-size: 12px; color: var(--gray-3); line-height: 1.7; }
+.footer-links { margin-top: 1.25rem; display: flex; justify-content: center; gap: 1.5rem; }
+.footer-links a { font-size: 12px; color: var(--gray-3); text-decoration: none; transition: color 0.2s; }
 .footer-links a:hover { color: var(--gold); }
 
 /* RESPONSIVIDADE ADAPTATIVA */
+@media (max-width: 900px) {
+  .hero-container { grid-template-columns: 1fr; gap: 35px; padding-top: 8.5rem; }
+  .hero-text { text-align: center; }
+  .pain-container { text-align: left; }
+  .hero-image-box { order: -1; }
+  .ban-screenshot { max-width: 290px; }
+  .form-box { padding: 2rem 1.5rem; }
+}
 @media (max-width: 640px) {
   .navbar-top { padding: 1rem 1.25rem; }
   .nav-logo-img { height: 26px; }
-  .hero { padding: 7.5rem 1rem 2.5rem; }
-  .cta-box { padding: 2rem 1.15rem; }
+  .form-group-row { grid-template-columns: 1fr; gap: 20px; }
   .segments { padding: 3.5rem 1rem; }
-  .pain-container { grid-template-columns: 1fr; gap: 12px; }
+  .nav-cta-whatsapp span { display: none; } /* Oculta o texto em telas pequenas para não quebrar a barra */
 }
 </style>
 </head>
 <body>
 
-<!-- BARRA DE NAVEGAÇÃO FIXA PREMIUM EM 1 LINHA -->
+<!-- BARRA DE NAVEGAÇÃO FIXA COM BOTÃO WHATSAPP -->
 <nav class="navbar-top">
   <a href="/" class="nav-brand">
     <img src="https://github.com/achilesmeloadvocacia/achilesmeloadvocacia.github.io/blob/main/imagens/LogoHorizontal_AchilesMelo_RGB_DOURADO.png?raw=true" alt="Achiles Melo Advocacia" class="nav-logo-img">
   </a>
-  <a href="/" class="nav-back">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-    <span>Voltar</span>
+  <a href="javascript:void(0)" onclick="redirectToWhatsapp()" class="nav-cta-whatsapp">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span>Falar no WhatsApp</span>
   </a>
 </nav>
 
 <main>
-  <section class="hero">
-    <div class="badge"><span></span>Defesa Contra Bloqueios Abusivos de Big Techs</div>
-    <h1>Sua conta empresarial foi suspensa ou <em>banida sem motivo?</em></h1>
-    <p class="subtitle">
-      Plataformas de tecnologia rotineiramente aplicam punições automáticas via inteligência artificial, cortando canais de comunicação legítimos sem aviso prévio. Há um caminho legal para reverter essa arbitrariedade.
-    </p>
+  <section class="hero-container">
+    
+    <!-- COLUNA TEXTUAL ESQUERDA -->
+    <div class="hero-text">
+      <div class="badge"><span></span>Recuperação de Canais de Vendas</div>
+      <h1>Seu WhatsApp Business foi <em>banido injustamente?</em></h1>
+      <p class="subtitle">
+        Empresas e profissionais liberais perdem o acesso às suas contas comerciais todos os dias por erros nos algoritmos de inteligência artificial. Se a sua ferramenta de trabalho foi bloqueada sem uma justificativa clara, saiba que há um caminho legal para reaver sua conta.
+      </p>
 
-    <!-- CONTAINER DE SINTOMAS CLÁSSICOS (BLINDAGEM DA CONVERSÃO) -->
-    <div class="pain-container">
-      <div class="pain-card">
-        <h4>Bloqueio Injustificado</h4>
-        <p>Sua empresa cumpre as regras, mas foi banida repentinamente por falha ou erro do algoritmo.</p>
-      </div>
-      <div class="pain-card">
-        <h4>Ausência de Defesa</h4>
-        <p>A plataforma aplica a penalidade máxima sem dar direito a uma contestação clara ou humana.</p>
-      </div>
-      <div class="pain-card">
-        <h4>Prejuízo Comercial</h4>
-        <p>Histórico de conversas, leads quentes e a principal via de vendas da empresa travados por tempo indeterminado.</p>
+      <!-- CONTAINER DE SINTOMAS -->
+      <div class="pain-container">
+        <div class="pain-card">
+          <h4>Bloqueio do Algoritmo</h4>
+          <p>Punições severas aplicadas automaticamente, sem análise humana ou direito de defesa prévia.</p>
+        </div>
+        <div class="pain-card">
+          <h4>Paralisia Comercial</h4>
+          <p>Contatos de clientes, histórico de negociações e campanhas ativas travadas de forma repentina.</p>
+        </div>
       </div>
     </div>
 
-    <!-- BOX DE CONVERSÃO PREMIUM -->
-    <div class="cta-box">
-      <p class="cta-title">Consulte um Advogado Especialista em Direito Digital</p>
-      <p class="cta-subtitle">Avaliamos a viabilidade jurídica para o <strong>restabelecimento forçado</strong> da sua conta comercial.</p>
-      
-      <button onclick="redirectToWhatsapp()" class="btn-whatsapp">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Analisar Viabilidade de Recuperação
-      </button>
-      <p class="btn-subtext"><strong>Nota de integridade:</strong> Este botão inicia um contato direto com escritório jurídico privado. Não possuímos vínculo com o suporte oficial das plataformas.</p>
+    <!-- COLUNA DA IMAGEM DIREITA -->
+    <div class="hero-image-box">
+      <img src="https://github.com/achilesmeloadvocacia/achilesmeloadvocacia.github.io/blob/main/whatsapp/business%20banido.jpg?raw=true" alt="Tela de WhatsApp Business Banido" class="ban-screenshot">
+    </div>
+
+  </section>
+
+  <!-- SEÇÃO DO FORMULÁRIO DE CAPTAÇÃO -->
+  <section class="form-section">
+    <div class="form-box">
+      <div class="form-header">
+        <h2 class="form-title">Fale com um Advogado Especialista em Direito Digital</h2>
+        <p class="form-subtitle">Preencha os campos abaixo para iniciar a análise do seu caso e buscar o <strong>restabelecimento definitivo</strong> do seu número.</p>
+      </div>
+
+      <form action="https://api.web3forms.com/submit" method="POST" class="main-contact-form">
+        
+        <!-- INSIRA SUA ACCESS KEY DO WEB3FORMS NO VALUE ABAIXO -->
+        <input type="hidden" name="access_key" value="0b4d632d-9d72-4840-b2b1-e8d104f35d71">
+        <input type="hidden" name="subject" value="Nova Solicitação: Recuperação de WhatsApp Banido">
+        <input type="checkbox" name="botcheck" id="" style="display: none;">
+
+        <div class="form-control">
+          <label for="name">Nome Completo</label>
+          <input type="text" name="name" id="name" placeholder="Ex: João Silva" required>
+        </div>
+
+        <div class="form-group-row">
+          <div class="form-control">
+            <label for="email">E-mail de Contato</label>
+            <input type="email" name="email" id="email" placeholder="Ex: joao@empresa.com" required>
+          </div>
+          <div class="form-control">
+            <label for="phone">WhatsApp / Telefone</label>
+            <input type="tel" name="phone" id="phone" placeholder="Ex: (11) 99999-9999" required>
+          </div>
+        </div>
+
+        <div class="form-control">
+          <label for="message">Detalhes do Bloqueio (Opcional)</label>
+          <textarea name="message" id="message" placeholder="Conte resumidamente o que aparece na tela do seu aplicativo ou o motivo alegado..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit-form">
+          Enviar Dados para Análise
+        </button>
+
+        <p class="form-disclaimer">
+          <strong>Nota de integridade:</strong> O envio deste formulário estabelece contato de atendimento preliminar diretamente com escritório jurídico privado. Não possuímos representação, vínculo ou endosso do suporte oficial corporativo das plataformas Meta.
+        </p>
+      </form>
     </div>
   </section>
 
+  <!-- SEÇÃO DE ALTERNATIVA FORA DO FORMULÁRIO -->
+  <section class="alternative-contact-box">
+    <div class="alternative-divider">ou se preferir</div>
+    
+    <button type="button" onclick="redirectToWhatsapp()" class="btn-whatsapp-external">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Iniciar Atendimento via WhatsApp
+    </button>
+  </section>
+
+  <!-- SEÇÃO DE CONTAS ATENDIDAS -->
   <section class="segments">
     <div class="segments-inner">
-      <h2 class="section-title">Canais de comunicação que <em>restabelecemos judicialmente</em></h2>
+      <h2 class="section-title">Contas comerciais que <em>protegemos e reabilitamos</em></h2>
       <div class="grid-segments">
         <div class="card-segment">
           <span class="card-icon">💼</span>
           <h3>WhatsApp Business</h3>
-          <p>Bloqueios e desativações inesperadas que rompem o contato com seus leads, paralisam fluxos comerciais ativos e interrompem o faturamento diário da sua operação.</p>
+          <p>Medidas legais para anular banimentos arbitrários que paralisam o faturamento de empresas, recuperando listas de clientes e canais de vendas ativos.</p>
         </div>
         <div class="card-segment">
           <span class="card-icon">📈</span>
-          <h3>Perfis do Instagram Comercial</h3>
-          <p>Suspensões corporativas sem justificativa legal fundamentada, bloqueando o acesso de equipes de vendas e invalidando meses ou anos de investimento em tráfego pago.</p>
+          <h3>Instagram Comercial</h3>
+          <p>Atuação contra desativações repentinas de perfis de marcas e criadores de conteúdo que dependem da plataforma para fechar novos negócios.</p>
         </div>
         <div class="card-segment">
           <span class="card-icon">📢</span>
-          <h3>Gerenciadores de Negócios (BM)</h3>
-          <p>Restrições imediatas e unilaterais que impedem a veiculação de anúncios essenciais à manutenção e crescimento do faturamento de empresas e infoprodutores.</p>
+          <h3>Gerenciadores de Anúncios</h3>
+          <p>Defesa jurídica voltada para a liberação de BMs bloqueadas injustamente, destravando investimentos em tráfego pago retidos pelas plataformas.</p>
         </div>
       </div>
     </div>
@@ -370,10 +499,10 @@ footer p {
 <script>
 function redirectToWhatsapp() {
   const phone = "5511913473579";
-  const text = encodeURIComponent("Olá, Dr. Achiles. Tive minha conta comercial bloqueada de forma injusta e preciso de uma análise jurídica para recuperação.");
+  const text = encodeURIComponent("Olá, Dr. Achiles. Tive minha conta comercial do WhatsApp banida de forma injusta e preciso de uma análise jurídica para a recuperação.");
   const url = `https://wa.me/${phone}?text=${text}`;
   
-  window.dispatchEvent(new CustomEvent('whatsapp_conversion', { detail: { segment: 'recuperacao_conta_arbitraria' } }));
+  window.dispatchEvent(new CustomEvent('whatsapp_conversion', { detail: { segment: 'recuperacao_whatsapp_banido' } }));
   window.open(url, '_blank');
 }
 </script>
